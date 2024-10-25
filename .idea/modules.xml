@@ -4,10 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaProject.iml" filepath="$PROJECT_DIR$/.idea/JavaProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/basicio/basicio.iml" filepath="$PROJECT_DIR$/basicio/basicio.iml" />
-      <module fileurl="file://$PROJECT_DIR$/collection/collection.iml" filepath="$PROJECT_DIR$/collection/collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/foundation/foundation.iml" filepath="$PROJECT_DIR$/foundation/foundation.iml" />
       <module fileurl="file://$PROJECT_DIR$/mystring/mystring.iml" filepath="$PROJECT_DIR$/mystring/mystring.iml" />
       <module fileurl="file://$PROJECT_DIR$/object/object.iml" filepath="$PROJECT_DIR$/object/object.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student manager/student manager.iml" filepath="$PROJECT_DIR$/student manager/student manager.iml" />
     </modules>
   </component>
 </project>
