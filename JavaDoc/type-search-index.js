@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.itheima","l":"ArrayListDemo"},{"p":"com.itheima","l":"Student"},{"p":"com.itheima","l":"StudentManager"},{"p":"com.itheima","l":"StudentManagerHomePage"},{"p":"com.itheima","l":"StudentManagerHomePageTest"},{"p":"com.itheima","l":"User"},{"l":"所有类和接口","u":"allclasses-index.html"}];updateSearchResults();
