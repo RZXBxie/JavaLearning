@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class StudentManagerHomePage {
-	static final HashSet<String> uniqueUsername = new HashSet<>();
-	static final HashMap<String, User> userMap = new HashMap<>();
+	static final HashSet<String> UNIQUE_USERNAME = new HashSet<>();
+	static final HashMap<String, User> USER_MAP = new HashMap<>();
 	static final int MAX_RETRY_COUNT = 3;
 
 	public static void homePage() {
@@ -100,7 +100,7 @@ public class StudentManagerHomePage {
 		}
 
 		User user = new User(username, password, id, phoneNumber);
-		userMap.put(username, user);
+		USER_MAP.put(username, user);
 		System.out.println("注册成功！");
 	}
 
@@ -127,14 +127,14 @@ public class StudentManagerHomePage {
 		}
 		System.out.println("请输入用户名：");
 		username = sc.next();
-		if (!uniqueUsername.contains(username)) {
+		if (!UNIQUE_USERNAME.contains(username)) {
 			System.out.println("用户名不存在，请注册后重新输入");
 			return;
 		}
 		for (int i = 0; i < MAX_RETRY_COUNT; i++) {
 			System.out.println("请输入密码：");
 			password = sc.next();
-			if (!password.equals(userMap.get(username).getPassword())) {
+			if (!password.equals(USER_MAP.get(username).getPassword())) {
 				if (i != MAX_RETRY_COUNT - 1) {
 					System.out.printf("密码错误，您还剩%d次机会\n", MAX_RETRY_COUNT - 1 - i);
 				} else {
@@ -161,25 +161,25 @@ public class StudentManagerHomePage {
 		String username, id, phoneNumber, password;
 		System.out.println("请输入用户名：");
 		username = sc.next();
-		if (!uniqueUsername.contains(username)) {
+		if (!UNIQUE_USERNAME.contains(username)) {
 			System.out.println("当前用户名不存在");
 			return;
 		}
 		System.out.println("请输入身份证号：");
 		id = sc.next();
-		if (!(id.equals(userMap.get(username).getPhoneNumber()))) {
+		if (!(id.equals(USER_MAP.get(username).getPhoneNumber()))) {
 			System.out.println("账号信息不匹配，修改失败！");
 			return;
 		}
 		System.out.println("请输入手机号：");
 		phoneNumber = sc.next();
-		if (!(phoneNumber.equals(userMap.get(username).getId()))) {
+		if (!(phoneNumber.equals(USER_MAP.get(username).getId()))) {
 			System.out.println("账号信息不匹配，修改失败！");
 			return;
 		}
 		System.out.println("请输入新密码：");
 		password = sc.next();
-		userMap.get(username).setPassword(password);
+		USER_MAP.get(username).setPassword(password);
 		System.out.println("修改密码成功！");
 	}
 
@@ -193,10 +193,10 @@ public class StudentManagerHomePage {
 		if (username.length() < 3 || username.length() > 15) {
 			return false;
 		}
-		if (uniqueUsername.contains(username)) {
+		if (UNIQUE_USERNAME.contains(username)) {
 			return false;
 		}
-		uniqueUsername.add(username);
+		UNIQUE_USERNAME.add(username);
 		int numberCount = 0;
 		for (int i = 0; i < username.length(); i++) {
 			char c = username.charAt(i);

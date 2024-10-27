@@ -15,9 +15,9 @@ public class StudentManagerHomePageTest {
 			"admin123, true"            // success
 	})
 	public void testCheckUsername(String username, boolean expected) {
-		if (!expected && !StudentManagerHomePage.uniqueUsername.contains(username)) {
+		if (!expected && !StudentManagerHomePage.UNIQUE_USERNAME.contains(username)) {
 			if (username.equals("abcde")) {
-				StudentManagerHomePage.uniqueUsername.add(username);
+				StudentManagerHomePage.UNIQUE_USERNAME.add(username);
 			}
 		}
 		Assertions.assertEquals(expected, StudentManagerHomePage.checkUsername(username));

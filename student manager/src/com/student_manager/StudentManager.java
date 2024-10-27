@@ -3,8 +3,8 @@ package com.student_manager;
 import java.util.*;
 
 public class StudentManager {
-	static final HashSet<String> studentIdSet = new HashSet<>();         // 存储了学生id的集合，用于快速判断某个id是否存在
-	static final HashMap<String, Student> studentMap = new HashMap<>();   //学生id -> 学生信息的映射
+	static final HashSet<String> STUDENT_ID_SET = new HashSet<>();         // 存储了学生id的集合，用于快速判断某个id是否存在
+	static final HashMap<String, Student> STUDENT_MAP = new HashMap<>();   //学生id -> 学生信息的映射
 
 	public static void main(String[] args) {
 		StudentManagerHomePage.homePage();
@@ -51,11 +51,11 @@ public class StudentManager {
 		System.out.println("请输入学生id：");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.next();
-		if (studentIdSet.contains(id)) {
+		if (STUDENT_ID_SET.contains(id)) {
 			System.out.printf("id为%s的学生已经存在，请修改id后重试\n", id);
 			return;
 		}
-		studentIdSet.add(id);
+		STUDENT_ID_SET.add(id);
 		System.out.println("请输入学生姓名：");
 		String name = sc.next();
 		System.out.println("请输入年龄：");
@@ -63,7 +63,7 @@ public class StudentManager {
 		System.out.println("请输入地址：");
 		String location = sc.next();
 		Student student = new Student(id, name, age, location);
-		studentMap.put(id, student);
+		STUDENT_MAP.put(id, student);
 		System.out.println("学生添加成功！");
 	}
 
@@ -74,8 +74,8 @@ public class StudentManager {
 		System.out.println("请输入要删除的学生id：");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.next();
-		if (studentIdSet.contains(id)) {
-			studentMap.remove(id);
+		if (STUDENT_ID_SET.contains(id)) {
+			STUDENT_MAP.remove(id);
 		} else {
 			System.out.printf("id为%s的学生不存在，请核对后重试\n", id);
 		}
@@ -88,7 +88,7 @@ public class StudentManager {
 		System.out.println("请输入要修改的学生id：");
 		Scanner sc = new Scanner(System.in);
 		String id = sc.next();
-		if (studentIdSet.contains(id)) {
+		if (STUDENT_ID_SET.contains(id)) {
 			System.out.println("请输入修改后的姓名：");
 			String name = sc.next();
 			System.out.println("请输入修改后的年龄：");
@@ -106,19 +106,19 @@ public class StudentManager {
 	 * 查询：输出所有学生的信息
 	 */
 	public static void printStudent() {
-		if (studentMap.isEmpty()) {
+		if (STUDENT_MAP.isEmpty()) {
 			System.out.println("当前没有用学生信息，添加后再试！");
 			return;
 		}
 		System.out.println("id\t\tname\t\tage\t\tlocation");
-		for (Map.Entry<String, Student> entry : studentMap.entrySet()) {
+		for (Map.Entry<String, Student> entry : STUDENT_MAP.entrySet()) {
 			Student student = entry.getValue();
 			System.out.println(student);
 		}
 	}
 
 	private static void modify(String id, String name, int age, String location) {
-		for (Map.Entry<String, Student> entry : studentMap.entrySet()) {
+		for (Map.Entry<String, Student> entry : STUDENT_MAP.entrySet()) {
 			String existId = entry.getKey();
 			Student student = entry.getValue();
 			if (student.getId().equals(id)) {
