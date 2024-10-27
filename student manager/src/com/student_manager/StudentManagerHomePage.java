@@ -5,6 +5,10 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class StudentManagerHomePage {
+	private static final String LOGIN = "1";
+	private static final String REGISTER = "2";
+	private static final String FORGET = "3";
+	private static final String EXIT = "4";
 	static final HashSet<String> UNIQUE_USERNAME = new HashSet<>();
 	static final HashMap<String, User> USER_MAP = new HashMap<>();
 	static final int MAX_RETRY_COUNT = 3;
@@ -16,16 +20,16 @@ public class StudentManagerHomePage {
 			Scanner sc = new Scanner(System.in);
 			String choice = sc.next();
 			switch (choice) {
-				case "1":
+				case LOGIN:
 					login();
 					break;
-				case "2":
+				case REGISTER:
 					register();
 					break;
-				case "3":
+				case FORGET:
 					forgetPassword();
 					break;
-				case "4":
+				case EXIT:
 					System.exit(0);
 				default:
 					System.out.println("输入有误，请重新输入");

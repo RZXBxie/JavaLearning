@@ -3,6 +3,11 @@ package com.student_manager;
 import java.util.*;
 
 public class StudentManager {
+	private static final String ADD_STUDENT = "1";
+	private static final String DELETE_STUDENT = "2";
+	private static final String MODIFY_STUDENT = "3";
+	private static final String PRINT_STUDENT = "4";
+	private static final String EXIT = "5";
 	static final HashSet<String> STUDENT_ID_SET = new HashSet<>();         // 存储了学生id的集合，用于快速判断某个id是否存在
 	static final HashMap<String, Student> STUDENT_MAP = new HashMap<>();   //学生id -> 学生信息的映射
 
@@ -22,19 +27,19 @@ public class StudentManager {
 			Scanner sc = new Scanner(System.in);
 			String choice = sc.next();
 			switch (choice) {
-				case "1":
+				case ADD_STUDENT:
 					insertStudent();
 					break;
-				case "2":
+				case DELETE_STUDENT:
 					deleteStudent();
 					break;
-				case "3":
+				case MODIFY_STUDENT:
 					modifyStudent();
 					break;
-				case "4":
+				case PRINT_STUDENT:
 					printStudent();
 					break;
-				case "5":
+				case EXIT:
 					System.exit(0);
 					break;
 				default:
