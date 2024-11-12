@@ -1,13 +1,17 @@
+import java.util.Scanner;
+
 public class Test {
-	public static void main(String[] args) {
-		X t = new X();
-		t.start();
+	static int a = 10;
+
+	public Test() {
+
 	}
 
-	public static class X extends Thread implements Runnable {
-		@Override
-		public void run() {
-			System.out.println("This is run");
-		}
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		sc.nextLine();
+
+
 	}
 }
